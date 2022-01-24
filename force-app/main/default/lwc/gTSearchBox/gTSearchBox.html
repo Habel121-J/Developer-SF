@@ -1,0 +1,43 @@
+<template>
+        <lightning-card>
+                <div class="slds-form-element__control" style="width:800px;height:70px"><label><b>Your Trip
+                                        Location</b></label>
+                        <lightning-input label="Your Trip Location" variant="label-hidden" class="strong-text"
+                                placeholder="Ex:New York" type="text" onchange={handleLocation}>
+                        </lightning-input>
+                </div></br>
+
+                <div class="slds-align_absolute-left">
+                        <lightning-button label="Go" variant="brand" onclick={handleSearch}>
+                        </lightning-button>
+                </div></br>
+
+                <div class="slds-form-element__control" style="width:800px;height:70px"><label><b>Keyword
+                                        Search</b></label>
+                        <lightning-input label="Keyword Search" variant="label-hidden" class="strong-text"
+                                placeholder="Ex :Lakes,Foodcourts" type="text" onchange={handleAccountName}>
+                        </lightning-input>
+                </div></br>
+
+                <div class="slds-align_absolute-left">
+                        <lightning-button label="Go" variant="brand" onclick={handleSearch}>
+                        </lightning-button>
+                </div>
+                <template for:each={listrecs} for:item="item" for:index="indexVar">
+                        <div key={item.Id}> 
+                                <p>
+                                <img src={img} style = "width: 20 ; height: 20 ">
+                                {item.Country__c}<br/>
+                                {item.State2__c}<br/>   
+                                {item.Street__c}<br/>
+
+                                </p>
+                        </div>
+                </template>
+        
+        
+        
+        
+        </lightning-card>
+        
+</template>

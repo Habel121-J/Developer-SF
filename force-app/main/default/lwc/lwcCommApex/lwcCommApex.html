@@ -1,0 +1,65 @@
+<template>
+<!--Use template if:true to display/hide popup based on isModalOpen value--> 
+<template if:true={isModalOpen}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+       
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h6 id="modal-heading-01" class="slds-"><b>Terms of Service</b></h6>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="slds-text-align_center">
+                    <h4><b>Guide Time Inc. Terms of Service</b></h4>
+                    <b>PLEASE READ THESE TERMS OF SERVICE CAREFULLY.</b>
+                </div>
+                    
+                    <p>You agree that by clicking “join-now”, participating in the Referral Program (defined below), registering, accessing, or using our Services (described below), you are agreeing to enter into a legally binding contract with Guide Time Inc. operating as d/b/a Guide Time, (hereafter referred to as “Guide Time”, “we”, “us”, or “our”). If you do not agree that these Terms of Service (“Terms”) form a contract with you, or should you not wish to agree to these Terms, do not click “join-now” and do not access or otherwise use any of the Services. If you do not agree to these Terms, you have no right to obtain information from or otherwise continue using the Services. Failure to use the Services in accordance with these Terms may subject you to civil and/or criminal penalties. Stated differently, your right and ability to utilize our Services is expressly conditioned upon your agreement to all these Terms of Service.</p>
+                    
+                    <p>You agree to comply with and be legally bound by these Terms, whether or not you become a registered user of the Services. These Terms govern your access to and use of the Services and all Collective Content (defined below), and your participation in the Referral Program (defined below). These Terms constitute a binding and enforceable legal agreement between you and Guide Time. You must agree to all terms before using our Services and anyone who uses our Services is assumed to agree to these Terms. We want our Services to be as open and inclusive as possible, but we also want them to be safe, secure, and in accordance with applicable law. As such, is is important that you commit to these Terms. These Terms are triggered if and when you click “join-now” and otherwise as described above herein.</p>
+                    
+                    <p>Your use of our Services is also subject to our ​Privacy Policy​​. Other services offered by Guide Time may be subject to separate terms. YOU UNDERSTAND AND AGREE THAT Guide Time IS NOT A PARTY TO ANY AGREEMENTS ENTERED INTO BETWEEN OUTFITTERS/GUIDES AND Clients, NOR IS Guide Time A guided trip BROKER, AGENT OR INSURER. Guide Time HAS NO CONTROL OVER THE CONDUCT OF OUTFITTERS/GUIDES, Clients AND OTHER USERS OF THE SITE, APPLICATION AND SERVICES OR ANY trips, AND DISCLAIMS ALL LIABILITY IN THIS REGARD. Nothing herein contained shall be deemed to create an agency, join venture, amalgamation, partnership, or any similar relationship between you, Guide Time, Outfitters, and/or Guides. Notwithstanding any of the provisions of these Terms of Service, no party shall at any time enter into, incur, or hold themselves out to third parties as having the authority to enter into or incur, on behalf of the other party, any commitment, expenses, or liabilities whatsoever, and all contracts, expenses and liabilities undertaken or incurred by one party in connection with or relating to the booking of or going on trips (as defined below) shall undertaken, incurred, or paid exclusively by that party, and not as an agent or representative of the other party.</p>
+                    
+                    <p>When using or opening an account with Guide Time on behalf of a company, entity, or organization, you represent and warrant that you: (i) are an authorized representative of that entity with the authority to bind that organization to these Terms and grant the licenses set forth; and (ii) agree to these Terms on behalf of such entity.</p>
+                    
+                    <h4><b>Definitions</b></h4>	
+                    
+                    <p>“Guided trip(s)” means trips and experiences, being provided by a Guide Time registered professional guide.</p>
+                    
+                    <p>“Guide Time Content” means all Content that Guide Time makes available through the Services, including any Content licensed from a third party, but excluding Member Content.</p>
+                    
+                    <p>“Collective Content” means Member Content and Guide Time Content.</p>
+                    <p>“Content” means text, graphics, images, music, software, audio, video, information and any other content or materials.</p>
+                    <p>“Service Fee Policy” means the list of fees associated with transactions that are available via the Services. A list of the current charges and fees can be found by visiting the Service Fee Policy: <lightning-formatted-url>https://www.guidetimebooking.com/legal/fee_policy​.</lightning-formatted-url></p>
+                    
+                    <p>You agree that you will comply with all written Guide Time rules, agreements, and policies that are made available by Guide Time on the Services and which are incorporated herein by reference. These include, but are not limited to, the following:</p>
+                    <ul class="slds-list_dotted slds-m-top_large">
+                      <li>Violate any local, state, provincial, national, maritime or other law or regulation, or any order of a court, including, without limitation, zoning restrictions, admiralty law and Tax regulations;</li>
+                      <li>Use manual or automated software, devices, scripts, robots, other means or processes to access, scrape, crawl or spider any web pages or other services contained in the Services or Content;</li>
+                      <li>Use the Services for any commercial or other purposes that are not expressly permitted by these Terms;</li>
+                    </ul>
+                    
+                    
+                       
+               
+                
+            </div>
+        
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Okay</button>
+                </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+</template>

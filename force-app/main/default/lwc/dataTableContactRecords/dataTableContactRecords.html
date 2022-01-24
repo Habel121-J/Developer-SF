@@ -1,0 +1,108 @@
+<template>
+
+    <lightning-card title="Contact Details" icon-name="standard:contact">
+
+
+        <table aria-describedby="conatact-list" class="slds-table  slds-table_bordered ">
+
+            <!--Header of the table-->
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-size_1-of-6 " scope="col">
+                        <div class="slds-truncate " title="Name">Name</div>
+                    </th>
+                    <th class="slds-size_1-of-6 " scope="col">
+                        <div class="slds-truncate " title="Phoe">Phone</div>
+                    </th>
+                    <th class="slds-size_1-of-6 " scope="col">
+                        <div class="slds-truncate " title="Email">Email</div>
+                    </th>
+                    <th class="slds-size_1-of-6" scope="col">
+                        <div class="slds-truncate " title="Department">Department</div>
+                    </th>
+                    <th class="slds-size_1-of-6" scope="col">
+                        <div class="slds-truncate " title="edit">edit</div>
+                    </th>
+                    <th class="slds-size_1-of-6" scope="col">
+                        <div class="slds-truncate " title="Delete">Delete</div>
+                    </th>
+                </tr>
+            </thead>
+
+            <!--Body of the table-->
+            <tbody>
+                <template for:each={conList} for:item="item" for:index="indexVar">
+                    <tr key={item.Id} class="slds-hint-parent">
+                        <td class="slds-size_1-of-6">
+                            <div>
+                               
+                               <template if:false={item.isedit}>
+                                <lightning-formatted-text value={item.Name} ></lightning-formatted-text>
+                               </template>
+                               
+                                <template  if:true={item.isedit}>
+                                <lightning-input type="text" label="name" data-label="name" data-id= {item.Id} value={item.Name} 
+                                    onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                        </td>
+                        <td class="slds-size_1-of-6">
+                            <div>
+                                <template if:false={item.isedit}>
+                                    <lightning-formatted-phone value={item.Phone} ></lightning-formatted-phone>
+                                </template>
+                                <template if:true={item.isedit}>
+                                <lightning-input type="Phone" label="phone" data-label="phone" data-id= {item.Id} value={item.Phone}
+                                    onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                        </td>
+                        <td class="slds-size_1-of-6">
+                            <div>
+                                <template if:false={item.isedit}>
+                                    <lightning-formatted-email value={item.Email}></lightning-formatted-email>
+
+                                </template>
+                                <template if:true={item.isedit}>
+                                <lightning-input type="Email" label="email" data-label="email" data-id= {item.Id} value={item.Email} 
+                                 onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                        </td>
+                        <td class="slds-size_1-of-6">
+                            <div>
+                                <template if:false={item.isedit}>
+                                    <lightning-formatted-text value={item.Department}></lightning-formatted-text>
+                                </template>
+                                <template if:true={item.isedit}>
+                                <lightning-input type="text" label="department" data-label="department" data-id= {item.Id} value={item.Department}
+                                    onchange={handleChange}></lightning-input>
+                                </template>
+                            </div>
+                        </td>
+                        <td class="slds-size_1-of-6">
+                            <div>
+                                <lightning-button variant="neutral" size="small" data-id= {item.Id} label="edit" onclick={handleEdits}>
+                                </lightning-button>
+                            </div>
+                        </td>
+                        <td class="slds-size_1-of-6">
+                            <div>
+                                <lightning-button variant="neutral" value={item.Id} size="small" label="Delete"
+                                    onclick={handleDelete}></lightning-button>
+                            </div>
+                        </td>
+
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <lightning-layout-item size="12" class="slds-var-p-top_small">
+            <br>
+            <lightning-button class="slds-align_absolute-center" variant="brand" label="Save" onclick={handleSave}>
+            </lightning-button>
+        </lightning-layout-item>
+
+    </lightning-card>
+
+</template>

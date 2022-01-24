@@ -1,0 +1,58 @@
+<template>
+  <lightning-card title="User Details" icon-name="standard:account">
+
+
+    <lightning-layout multiple-rows>
+      <template if:false={falseEvent}>
+        <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+          <lightning-input label="Industry" type="text" data-field="Industry" value={industry} disabled={Buttontrue}
+            onchange={handleChange}></lightning-input>
+          <lightning-input label="Phone" type="tel" data-field="Phone" value={phone} disabled={Buttontrue}
+            onchange={handleChange} pattern=[0-9]{10}$
+            message-when-pattern-mismatch="Please enter a valid phone number">
+          </lightning-input>
+          <lightning-input label="Site" type="url " data-field="Site__c" disabled={Buttontrue} onchange={handleChange}
+            value={site}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+          <lightning-input label="Mail" type="email" data-field="Mail__c" disabled={Buttontrue} onchange={handleChange}
+            value={mail}></lightning-input>
+          <lightning-input label="SLA Expiration Date" type="date" data-field="SLA Expiration Date"
+            disabled={Buttontrue} value={expiry} date-style="short" min={today} onchange={handleChangeDate}>
+          </lightning-input><br><br>
+        </lightning-layout-item>
+      </template>
+      <template if:true={falseEvent}>
+        <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+          <lightning-input label="Industry" type="text" data-field="Industry" value={industry} disabled={Buttontrue}
+            onchange={handleChange}></lightning-input>
+          <lightning-input label="Phone" type="tel" data-field="Phone" value={phone} disabled={Buttontrue}
+            onchange={handleChange} pattern=[0-9]{10}$
+            message-when-pattern-mismatch="Please enter a valid phone number">
+          </lightning-input>
+          <lightning-input label="Site" type="url " data-field="Site__c" disabled={Buttontrue} onchange={handleChange}
+            value={site}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+          <lightning-input label="Mail" type="email" data-field="Mail__c" disabled={Buttontrue} onchange={handleChange}
+            value={mail}></lightning-input>
+          <lightning-input label="SLA Expiration Date" type="date" data-field="SLA Expiration Date"
+            disabled={Buttontrue} value={expiry} date-style="short" min={today} onchange={handleChangeDate}>
+          </lightning-input><br><br>
+        </lightning-layout-item>
+      </template>
+
+      <lightning-layout-item size="12" class="slds-var-p-top_small">
+
+        <lightning-button class="slds-m-right_small" variant="brand" label="Save" onclick={handleSave}>
+        </lightning-button>
+        <lightning-button label="Edit" class="slds-m-right_small" onclick={editForm}></lightning-button>
+        <lightning-button label="Cancel" class="slds-m-right_small" onclick={resetForm}></lightning-button>
+
+      </lightning-layout-item>
+    </lightning-layout>
+
+
+
+  </lightning-card>
+</template>

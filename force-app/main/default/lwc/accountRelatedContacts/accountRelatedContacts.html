@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Account Details" icon-name="standard:account">
+        <div style="height: 100px;">
+            <template if:true={accList}>
+                 <lightning-datatable
+                         key-field="id"
+                         data={accList}
+                         columns={columns}>
+                 </lightning-datatable>
+            </template>
+            </div>
+            
+            <template for:each={conData} for:item="list" >
+            <c-account-child-contacts  key={list.Id} list-data={list}>  </c-account-child-contacts>
+        </template>
+            
+            
+
+    </lightning-card>
+</template>

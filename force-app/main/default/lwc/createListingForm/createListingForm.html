@@ -1,0 +1,80 @@
+<template>
+    <lightning-card>
+        <lightning-accordion class="example-accordion" active-section-name="Information">
+            <lightning-accordion-section name="Information" label="Information">
+                <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                    <lightning-layout-item padding="around-small" size="12" medium-device-size="6"
+                        large-device-size="6">
+                        <lightning-input label="Listing Name" class="validate" type="text" onchange={handlevent} required>
+                        </lightning-input>
+                        <lightning-combobox required label="Category" class="validate"  options={categoryPL} name="Category"
+                            onchange={handlevent}>
+                        </lightning-combobox>
+                        <lightning-combobox required label="Duration" class="validate" options={durationPL} name="Duration"
+                            onchange={handlevent}>
+                        </lightning-combobox>
+                        <lightning-input label="Street" type="text"  onchange={handlevent}></lightning-input>
+                        <lightning-input label="City" type="text" class="validate" onchange={handlevent} required></lightning-input>
+                        <lightning-combobox required label="State" class="validate" options={statePL} name="State" onchange={handlevent}>
+                        </lightning-combobox>
+                        <lightning-input label="Zip/Postal Code" class="validate" type="text" onchange={handlevent} required>
+                        </lightning-input>
+                        <lightning-input label="Country" class="validate" type="text" onchange={handlevent} required>
+                        </lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="12" medium-device-size="6"
+                        large-device-size="6">
+                        <lightning-combobox required label="Status" class="validate" options={statusPL} name="Status"
+                            onchange={handlevent}>
+                        </lightning-combobox>
+                        <lightning-input label="Base Price" class="validate" type="number" onchange={handlevent} required>
+                        </lightning-input>
+                        <lightning-input label="Number of Days" type="number" onchange={handlevent} disabled="true">
+                        </lightning-input>
+                        <lightning-input label="Price Per Person" class="validate" type="number" onchange={handlevent} required>
+                        </lightning-input>
+                        <lightning-input label="Guest Min Capacity" class="validate" type="number" onchange={handlevent} required>
+                        </lightning-input>
+                        <lightning-input label="Guest Max Capacity" type="text" onchange={handlevent}>
+                        </lightning-input>
+                        <lightning-input label="Items to Bring" type="text" onchange={handlevent}></lightning-input>
+                        <lightning-input label="Pick Up Location" type="text" onchange={handlevent}>
+                        </lightning-input>
+                    </lightning-layout-item>
+                </div>
+            </lightning-accordion-section>
+            <lightning-card>
+                <lightning-accordion-section name="Fill Out" label="Fill Out">
+                    <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                        <lightning-input-rich-text required class="validate" label="Description" label-visible value={Description}
+                            onchange={getChange}>
+                        </lightning-input-rich-text>
+                        <lightning-input-rich-text required class="validate" label="What's Include" label-visible value={Include}
+                            onchange={getChange}>
+                        </lightning-input-rich-text>
+                        <lightning-input-rich-text required class="validate" label="Other Considerations" label-visible value={Other}
+                            onchange={getChange}>
+                        </lightning-input-rich-text>
+                    </div>
+                </lightning-accordion-section>
+            </lightning-card>
+            <lightning-card>
+                <lightning-accordion-section name="C" label="Attachment">
+                    <div class="slds-m-around_medium">
+                        <lightning-input type="file" onchange={onFileUpload} class="validate" required name="uploadFile" label="Upload File">  
+                        </lightning-input>  
+                         <b>{fileName}</b> 
+                    </div>
+                    
+                </lightning-accordion-section>
+            </lightning-card>
+        </lightning-accordion>
+        <lightning-card>
+            <div class="slds-align_absolute-right">
+           <lightning-button variant="button" label="Save" onclick={onSaveDetails}></lightning-button>
+           <lightning-button variant="button" label="Reset" onclick={resetPage}></lightning-button>
+            </div>
+    </lightning-card>
+    </lightning-card>
+    
+</template>

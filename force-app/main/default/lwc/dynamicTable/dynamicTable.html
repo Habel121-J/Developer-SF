@@ -1,0 +1,17 @@
+<template>
+  <lightning-card>
+   
+        
+        <template for:each={fields} for:item="list">
+            <c-dynamic-tabel-child key={list.fieldapi}   fld-api={list.fieldapi} onpassdata1={fetchValue1}  fld-type={list.fieldtype} fld-label={list.label} is-edit={list.isEditable}></c-dynamic-tabel-child>
+    
+                
+        </template> 
+    
+
+    <lightning-button variant="button" label="Save" onclick={onSave}></lightning-button> 
+   
+</lightning-card>
+
+    
+</template>

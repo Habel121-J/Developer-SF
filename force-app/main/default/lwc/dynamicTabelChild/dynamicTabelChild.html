@@ -1,0 +1,41 @@
+<template>
+    <lightning-card>
+        <template if:false={isEdit}>
+            <template if:true={isText}>
+
+                {fldLabel}<br>
+                <lightning-formatted-text class="slds-size_1-of-2" value="Jyothi"></lightning-formatted-text>
+            </template>
+            <template if:true={isPhone}>
+
+                {fldLabel}<br>
+                <lightning-formatted-phone class="slds-size_1-of-2" value="950505023"></lightning-formatted-phone>
+            </template>
+        </template>
+
+
+        <template if:true={isEdit}>
+            <template if:true={isText}>
+
+                <lightning-input label={fldLabel} type={fldType} onchange={handleChange} placeholder="Enter Values">
+                </lightning-input>
+            </template>
+
+            <template if:true={isEmail}>
+                <lightning-input label={fldLabel} type={fldType} onchange={handleChange} placeholder="Enter Mail">
+                </lightning-input>
+            </template>
+            <template if:true={isDate}>
+
+                <lightning-input label={fldLabel} type={fldType} onchange={handleChange} placeholder="Enter Date">
+                </lightning-input>
+            </template>
+        </template>
+
+
+
+    </lightning-card>
+
+
+
+</template>
