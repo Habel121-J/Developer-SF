@@ -7,11 +7,11 @@
 * @systemLayer      Apex Class
 */
 
-//@description to Update Custom Email Object field when a contact is updated or inserted
+//@description to Update Custom Email Object field when a contact is created or inserted
 
 public  class Handler_ConTrigger {
 
-    public static String camp =  System.Label.Campus;
+    public static String camp = System.Label.Campus;
     public static String alter = System.Label.Alter;
     public static String other = System.Label.Other;
 
@@ -49,7 +49,10 @@ public  class Handler_ConTrigger {
         for(Contact conObj : conList )
         {
             System.debug('from inside for loop');
-          if(isNewChanged('',conObj))
+         
+           
+            
+            if(isNewChanged('CampusEmail__c',conObj))
             {
                 Email__c insEmail = new Email__c();                   
                 System.debug('inside campus conOBJ '+conObj);
@@ -59,6 +62,7 @@ public  class Handler_ConTrigger {
                 insEmail.Active__c = true;
                 insEmail.ContactId__c= conObj.Id; 
                 Insertmail.add(insEmail);
+             
             }
             if(isNewChanged('AlternativeEmail__c',conObj))
             {
@@ -69,6 +73,7 @@ public  class Handler_ConTrigger {
                 insEmail.Active__c = true;
                 insEmail.ContactId__c= conObj.Id;
                 Insertmail.add(insEmail);
+              
             }
             if(isNewChanged('OtherEmail__c',conObj))
             {
@@ -79,10 +84,14 @@ public  class Handler_ConTrigger {
                 insEmail.Active__c = true;
                 insEmail.ContactId__c= conObj.Id;
                 Insertmail.add(insEmail);
+               
             }   
+            //Insertmail.add(insEmail);
+        
         }
         Insert Insertmail;
     }
+
     public static boolean isExistingChanged(string fieldAPiName, SObject conObj){
 
         SObject oldRecords =  Trigger.oldMap != null ? Trigger.oldMap.get(conObj.ID) : null;
@@ -98,12 +107,13 @@ public  class Handler_ConTrigger {
 
     public static void isAfterUpdateCon(List<Contact> conList)
     {
-        //List<Email__c> ems = [SELECT id,ContactId__c, Emai_Type__c, Email__c from Email__c where  Active__c = true];
+        List<Email__c> ems = [SELECT id,ContactId__c, Emai_Type__c, Email__c from Email__c where  Active__c = true];
         //Map<Id, List<Email__c>> mapOfConIdEmail = new Map<Id, List<Email__c>>();
         List<Email__c> mail = new List<Email__c>();
         for(Contact conObj : conList)
         {  
-          if(isExistingChanged('CampusEmail__c',conObj))
+          
+            if(isExistingChanged('CampusEmail__c',conObj))
             {
                 Email__c newEmail = new Email__c();   
                 System.debug('inside campus ');
@@ -134,8 +144,7 @@ public  class Handler_ConTrigger {
             }
         }
         Map<Id,List<Email__c>> emilst = new Map<Id,List<Email__c>>();
-        for(Email__c em : [SELECT id,ContactId__c, Emai_Type__c, Email__c from Email__c where  Active__c = true]) 
-            {
+        for(Email__c em : [SELECT id,ContactId__c, Emai_Type__c, Email__c from Email__c where  Active__c = true]) {
                
                 if(emilst.get(em.ContactId__c) == null)
                 {
@@ -147,24 +156,29 @@ public  class Handler_ConTrigger {
         for(Contact con : conList)  
         {
             Contact c = (Contact) trigger.oldMap.get(con.Id);
-            for(Email__c e: emilst.get(con.Id))
+            
+                for(Email__c e: emilst.get(con.Id))
                 {
                     if(e.Emai_Type__c == 'Campus Email' && con.CampusEmail__c != c.CampusEmail__c)
                     {
                         e.Active__c = false;
+                        
                         mail.add(e);
                     }
                     if(e.Emai_Type__c == 'Alternative Email' && con.AlternativeEmail__c != c.AlternativeEmail__c)
                     {
                         e.Active__c = false;
-                       mail.add(e);
+                       
+                        mail.add(e);
                     }
                     if(e.Emai_Type__c == 'Other Email' && con.OtherEmail__c != c.OtherEmail__c)
                     {
                         e.Active__c = false;
+                        
                         mail.add(e);
                     }
                 }
+            
         }    
         upsert mail;
     }

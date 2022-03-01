@@ -1,8 +1,7 @@
 @isTest
 public with sharing class TestForGetAccounts{
-
-    
-    @isTest       
+  
+  @isTest       
     public static void getAccountsDataTest(){
 
       Account acc = new Account(Name='test', Industry='Manufacturings');
@@ -15,7 +14,5 @@ public with sharing class TestForGetAccounts{
         Test.stopTest();
 
         system.assertEquals('Manufacturing', accList[0].Industry);
-        
     }
-
 }
