@@ -4,7 +4,7 @@
 * @version          1.0
 * @created          2021-12-31
 * @modified      
-* @systemLayer      Apex Class
+* @systemLayer       Apex Class
 */
 
 //@description to Update Custom Email Object field when a contact is created or inserted
@@ -14,6 +14,8 @@ public  class Handler_ConTrigger {
     public static String camp = System.Label.Campus;
     public static String alter = System.Label.Alter;
     public static String other = System.Label.Other;
+
+
 
     public static void isAfterUpdate(List<Contact> conList){
 
