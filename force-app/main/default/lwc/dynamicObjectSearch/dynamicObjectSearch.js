@@ -1,3 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
 
-export default class DynamicObjectSearch extends LightningElement {}
+export default class DynamicObjectSearch extends LightningElement {
+
+    @api objectApiName;
+}
