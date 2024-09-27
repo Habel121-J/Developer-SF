@@ -1,4 +1,4 @@
-trigger OpportunityTrigger on Opportunity (after insert,after update,before insert, after delete, after undelete) {
+trigger OpportunityTrigger  on Opportunity (after insert,after update,before insert, after delete, after undelete) {
 
     if(CheckRecursion.isOnce){
         CheckRecursion.isOnce = false;

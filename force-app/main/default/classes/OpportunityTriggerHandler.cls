@@ -17,6 +17,8 @@ for(Opportunity opp : oppRecords){
 
 
 }
+
+//TO update records
 public static void updateRecentAmount(List<Opportunity> oppList){
    Map<Id,Opportunity> mapOpp = new Map<Id,Opportunity>();
     for(Opportunity opp : oppList){
