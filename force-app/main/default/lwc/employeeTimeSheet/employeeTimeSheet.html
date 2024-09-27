@@ -1,0 +1,20 @@
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" key={label} for:each={headerLabels} for:item="label">
+          {label}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <template for:each={data} for:item="row">
+        <tr key={row.id}>
+          <template for:each={headerLabels} for:item="label">
+            <td key={label}>{label}</td>
+          </template>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</template>

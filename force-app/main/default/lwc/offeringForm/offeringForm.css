@@ -1,0 +1,19 @@
+.slds-page-header .head{
+    
+    text-align: center;
+	color: white;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.slds-page-header {
+    background-color: #4B90CD;
+    margin-top: 0px;
+    padding-top: 0px;
+   
+} 
+
+.pad{
+    padding-top: 0px;
+    margin-top: 0px;
+}

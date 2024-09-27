@@ -1,0 +1,43 @@
+<template>
+    <lightning-card>
+        <div class = "pad">
+        <div class="slds-page-header">
+            <h6 class="head">Offering Form</h6>
+        </div>
+    </div>
+
+        <lightning-layout class="slds-col ">
+            <lightning-layout-item size="2" padding="around-medium">
+                <lightning-input type="date" label="Date" onchange={handlechange}></lightning-input>
+                <lightning-input type="text" label="District" onchange={handlechange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-medium">
+
+                <lightning-input type="number" label="Offering" onchange={handlechange}></lightning-input>
+                <lightning-input type="text" label="Congregation" onchange={handlechange}></lightning-input>
+            </lightning-layout-item >
+            <lightning-layout-item padding="around-medium">
+
+                <lightning-input type="number" label="Total Attendance" onchange={handlechange}></lightning-input>
+                <lightning-input type="text" label="Witness Name" onchange={handlechange}></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        <div slot="footer" class="slds-clearfix"> 
+            <div class="slds-float_right">
+        <lightning-button class="slds-p-right_medium" 
+                variant="neutral"
+                label="Cancel"
+                onclick={handleCancel}
+            ></lightning-button>
+            <lightning-button class="slds-float_right"
+                variant="brand"
+                label="Save"
+                onclick={handleSave}
+            ></lightning-button>
+        </div>
+        </div>
+        
+        
+    </lightning-card>
+</template>

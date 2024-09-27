@@ -1,0 +1,28 @@
+.navsection 
+{ 
+  margin-top: -25px; padding-top: 1%;
+  float: right;
+  
+  display: flex;
+  
+  
+}
+
+.navsection a {
+  
+  padding: 14px 16px;
+}
+
+.logo img{
+
+  margin-left: -1px;
+    margin-top: -33px;
+}
+
+.footerimage{
+
+  float: right;
+  margin-top: 0px;
+
+
+}

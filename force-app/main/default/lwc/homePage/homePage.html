@@ -1,0 +1,92 @@
+<template>
+
+    <lightning-card>
+        <div class="slds-p-bottom_x-small">
+            <header class="navsection">
+                <a class="active" style="color: #4980B1;" href="#home">Home</a>
+                <a href="#news" style="color: #4980B1;">News</a>
+                <a href="#contact" style="color: #4980B1;">Contact</a>
+                <a href="#about" style="color: #4980B1;">About</a>
+            </header>
+        </div>
+        <div class="logo">
+            <img src={nacLogo} height="80px" width="80px">
+        </div>
+
+        <h5 class="slds-align_absolute-center" ><b>Offering Form</b> </h5>
+
+
+        <!-- FORM BEGINS -->
+        <div class="slds-p-left_small">
+            <div class="slds-grid  slds-wrap">
+
+                
+                    
+                <div class="slds-col slds-size_1-of-2">
+
+                    <lightning-input class="slds-p-around_medium" type="date" format = "dd/MM/yyyy" label="Date" onchange={handleChange}>
+                    </lightning-input>
+
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-combobox class="slds-p-around_medium" name="district" label="District" value={value} placeholder="Select District" options={district}
+                        onchange={handleChange}>
+                    </lightning-combobox>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">      
+                    <lightning-input class="slds-p-around_medium" type="number" label="Offering"
+                        onchange={handleChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-combobox class="slds-p-around_medium" name="congregation" label="Congregation" placeholder="Select Congregation"
+                        options={congregtion} onchange={handleChange}>
+                    </lightning-combobox>
+                </div>
+
+                
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input class="slds-p-around_medium" type="number" label="Total Attendance"
+                        onchange={handleChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input class="slds-p-around_medium" type="text" label="Witness Name"
+                        onchange={handleChange}>
+                    </lightning-input>
+
+                </div>
+            
+                
+            </div>
+
+
+
+        </div>
+
+        <div class="slds-p-around_medium">
+            <div class="footerimage">
+                <div slot="footer">
+                    <img src={footerPic} height="120px" width="120px">
+
+                </div>
+            </div>
+        </div>
+        <div class="slds-clearfix">
+            <div class="slds-float_left">
+                <lightning-button class="slds-p-around_small" variant="neutral" label="Cancel" onclick={handleCancel}>
+                </lightning-button>
+                <lightning-button class="slds-p-around_small" variant="brand" label="Save" onclick={handleSave}>
+                </lightning-button>
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </lightning-card>
+
+</template>
