@@ -8,6 +8,7 @@ const columns = [{ label: 'Search Term', fieldName: 'searchTerm' },
 
 export default class BulkSearch extends LightningElement {
 
+
     @api objectApiName
 
     searchTerm = [];

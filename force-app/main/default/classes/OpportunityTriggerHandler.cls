@@ -11,7 +11,7 @@ public class OpportunityTriggerHandler {
             accList.add(acc);
             
         }
-        insert accList;
+        // insert accList;
         
     }
     

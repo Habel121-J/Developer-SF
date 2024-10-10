@@ -1,12 +1,18 @@
-trigger OpportunityTrigger on Opportunity (after insert) {
+trigger OpportunityTrigger on Opportunity(after insert, before insert, after update, before update){
 
-    if(Trigger.isAfter){
-       
-        if(Trigger.isInsert){
-            
-            OpportunityTriggerHandler.createOppor(Trigger.New);
+
+    switch on Trigger.OperationType{
+
+        when BEFORE_INSERT{
+
+
+        }
+
+        when AFTER_INSERT{
+
             
         }
     }
-    
+
+
 }
