@@ -7,6 +7,8 @@ public  class ContactTriggerHandler {
 
         if(Trigger.isInsert){
 
+            // TEST COMMNET
+
             for(Contact con : conList){
                 
                 if(con.AccountId <> null){
